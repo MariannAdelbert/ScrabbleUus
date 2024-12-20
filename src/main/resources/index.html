@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scrabble Game</title>
+</head>
+<body>
+<h1>Scrabble Game</h1>
+
+<!-- Mängu alustamine -->
+<form id="start-game-form">
+    <button type="submit">Start Game</button>
+</form>
+
+<br>
+
+<!-- Sõna mängimine -->
+<form id="play-word-form">
+    <label for="word">Enter a word to play:</label>
+    <input type="text" id="word" name="word" required>
+    <button type="submit">Play Word</button>
+</form>
+
+<br>
+
+<!-- Mängu lõpetamine -->
+<form id="end-game-form">
+    <button type="submit">End Game</button>
+</form>
+
+<br>
+
+<!-- Mängu oleku kuvamine -->
+<div>
+    <h2>Game Status</h2>
+    <button id="get-status-button">Get Game Status</button>
+    <p id="game-status"></p>
+</div>
+
+<script>
+    // Start Game
+    document.getElementById('start-game-form').addEventListener('submit', function (event) {
+        event.preventDefault();
+        fetch('/api/start-game', { method: 'POST' })
+            .then(response => response.text())
+            .then(data => alert(data))
+            .catch(error => console.error('Error:', error));
+    });
+
+    // Play Word
+    document.getElementById('play-word-form').addEventListener('submit', function (event) {
+        event.preventDefault();
+        const word = document.getElementById('word').value;
+        fetch('/api/play-word', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(word)
+        })
+            .then(response => response.text())
+            .then(data => alert(data))
+            .catch(error => console.error('Error:', error));
+    });
+
+    // End Game
+    document.getElementById('end-game-form').addEventListener('submit', function (event) {
+        event.preventDefault();
+        fetch('/api/end-game', { method: 'POST' })
+            .then(response => response.text())
+            .then(data => alert(data))
+            .catch(error => console.error('Error:', error));
+    });
+
+    // Get Game Status
+    document.getElementById('get-status-button').addEventListener('click', function () {
+        fetch('/api/game-status')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('game-status').innerText = data;
+            })
+            .catch(error => console.error('Error:', error));
+    });
+</script>
+</body>
+</html>
