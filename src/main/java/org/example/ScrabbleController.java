@@ -7,7 +7,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
-@CrossOrigin(origins = "http://localhost:8082")
+import java.util.Map;
+import java.util.HashMap;
+
+import org.example.ScrabbleGameService;
+import org.springframework.web.bind.annotation.RequestParam;
+
+
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping("/api")  // Kõik päringud, mis algavad /api-ga, teenindatakse selle kontrolleriga
 public class ScrabbleController {
@@ -22,6 +29,16 @@ public class ScrabbleController {
     @GetMapping("/welcome")  // Kui tehakse GET päring /api/welcome, siis kutsutakse seda meetodit
     public String welcome() {
         return "Welcome to Scrabble API!";  // Lihtne tervitussõnum
+    }
+
+    @GetMapping("/check")
+    public Map<String, Object> checkWord(@RequestParam String word) {
+        Map<String, Object> response = new HashMap<>();
+        int value = scrabbleGameService.calculateWordValue(word);
+        boolean isValid = scrabbleGameService.isValidWord(word);
+        response.put("value", value);
+        response.put("isValid", isValid);
+        return response;
     }
 
     @PostMapping("/start-game")
