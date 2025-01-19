@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class ScrabbleGameService {
 
-    private String gameStatus = "Game not started";
+//    private String gameStatus = "Game not started";
 
     // Arvutab sõna väärtuse
     public int calculateWordValue(String word) {

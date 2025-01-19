@@ -28,9 +28,9 @@ public class DatabaseHelper {
             String word;
             while ((word = br.readLine()) != null) {
                 insertWord(conn, word.trim()); // Sisestame iga sõna andmebaasi
-                System.out.println("Lisatud sõna: " + word);  // Logige iga sõna
+                System.out.println("Lisatud s6na: " + word);  // Logige iga sõna
             }
-            System.out.println("Sõnad on edukalt laaditud andmebaasi.");
+//            System.out.println("S6nad on edukalt laaditud andmebaasi.");
         } catch (IOException | SQLException e) {
             e.printStackTrace(); // Kui esineb viga, siis trüki välja
         }
