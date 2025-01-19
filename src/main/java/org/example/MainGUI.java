@@ -10,9 +10,6 @@ import java.sql.SQLException;
 public class MainGUI {
 
     public static void main(String[] args) {
-        // Loo ja käivita rakendus
-
-        // lisasin uusi kommentaare
         SwingUtilities.invokeLater(MainGUI::createAndShowGUI);
     }
 

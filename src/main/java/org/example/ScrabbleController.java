@@ -41,26 +41,20 @@ public class ScrabbleController {
         return response;
     }
 
-    @PostMapping("/start-game")
-    public String startGame() {
-        scrabbleGameService.startGame();
-        return "Game started!";
-    }
+//    @PostMapping("/play-word")  // Kui tehakse POST päring /api/play-word, mängime sõna
+//    public String playWord(@RequestBody String word) {
+//        scrabbleGameService.playWord(word);
+//        return "Word played: " + word;
+//    }
 
-    @PostMapping("/play-word")  // Kui tehakse POST päring /api/play-word, mängime sõna
-    public String playWord(@RequestBody String word) {
-        scrabbleGameService.playWord(word);
-        return "Word played: " + word;
-    }
+//    @GetMapping("/game-status")  // Kui tehakse GET päring /api/game-status, siis tagastame mängu oleku
+//    public String getGameStatus() {
+//        return scrabbleGameService.getGameStatus();
+//    }
 
-    @GetMapping("/game-status")  // Kui tehakse GET päring /api/game-status, siis tagastame mängu oleku
-    public String getGameStatus() {
-        return scrabbleGameService.getGameStatus();
-    }
-
-    @PostMapping("/end-game")  // Kui tehakse POST päring /api/end-game, lõpetame mängu
-    public String endGame() {
-        scrabbleGameService.endGame();
-        return "Game ended!";
-    }
+//    @PostMapping("/end-game")  // Kui tehakse POST päring /api/end-game, lõpetame mängu
+//    public String endGame() {
+//        scrabbleGameService.endGame();
+//        return "Game ended!";
+//    }
 }

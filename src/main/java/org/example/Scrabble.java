@@ -72,13 +72,13 @@ public class Scrabble {
         return dbHelper.isValidWord(word); // Kasutame DatabaseHelper klassi meetodit
     }
 
-    public static void main(String[] args) {
-        System.out.println("Scrabble rakendus käivitatud!");
-        // Testige, et sõnad on õigesti laaditud ja salvestatud andmebaasi
-        String word = "almond";
-        System.out.println("Kas sõna '" + word + "' on kehtiv? " + isValidWord(word));
-
-        // Arvutame sõna väärtuse
-        System.out.println("Sõna '" + word + "' väärtus on: " + calculateWordValue(word));
-    }
+//    public static void main(String[] args) {
+//        System.out.println("Scrabble rakendus käivitatud!");
+//        // Testige, et sõnad on õigesti laaditud ja salvestatud andmebaasi
+//        String word = "almond";
+//        System.out.println("Kas sõna '" + word + "' on kehtiv? " + isValidWord(word));
+//
+//        // Arvutame sõna väärtuse
+//        System.out.println("Sõna '" + word + "' väärtus on: " + calculateWordValue(word));
+//    }
 }

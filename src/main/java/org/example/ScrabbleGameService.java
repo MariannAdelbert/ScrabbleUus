@@ -17,20 +17,18 @@ public class ScrabbleGameService {
         return Scrabble.isValidWord(word);  // Kasutame Scrabble klassi meetodit
     }
 
-    public void startGame() {
-        gameStatus = "Game started!";
-    }
 
-    public void playWord(String word) {
-        // Lisada sõna mängimise loogika
-        gameStatus = "Played word: " + word;
-    }
+//    public void playWord(String word) {
+//        // Lisada sõna mängimise loogika
+//        gameStatus = "Played word: " + word;
+//    }
+//
+//    public String getGameStatus() {
+//        return gameStatus;
+//    }
+//
+//    public void endGame() {
+//        gameStatus = "Game ended!";
+//    }
 
-    public String getGameStatus() {
-        return gameStatus;
-    }
-
-    public void endGame() {
-        gameStatus = "Game ended!";
-    }
 }
